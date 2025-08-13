@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planit</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Enable class-based dark mode -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Apply saved theme before rendering -->
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.documentElement.classList.add("dark");
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center p-4 transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="flex justify-between items-center w-full max-w-2xl mb-4">
+        <h1 class="text-3xl font-bold">🌟 Planit</h1>
+        <button id="themeToggle" class="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 transition">
+            Toggle Theme
+        </button>
+    </header>
+
+    <!-- Task Form -->
+    <div class="bg-white dark:bg-gray-800 rounded shadow-lg p-4 w-full max-w-2xl">
+        <div class="mb-4">
+            <input id="taskInput" type="text" placeholder="Enter task" class="w-full p-2 border rounded dark:bg-gray-700 dark:border-gray-600">
+        </div>
+        <div class="flex gap-2 mb-4">
+            <input id="startDate" type="date" class="p-2 border rounded dark:bg-gray-700 dark:border-gray-600">
+            <input id="endDate" type="date" class="p-2 border rounded dark:bg-gray-700 dark:border-gray-600">
+        </div>
+        <button id="addTaskBtn" class="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 transition">Add Task</button>
+    </div>
+
+    <!-- Task List -->
+    <ul id="taskList" class="w-full max-w-2xl mt-4"></ul>
+
+    <script src="script.js"></script>
+</body>
+</html>
